@@ -9,7 +9,7 @@ public class GroupN_businessSimulator {
         int[] quantities = {4, 2, 9, 3};
 
         // Display price list
-        System.out.println("==== ZIPPY KIOSK ====");
+        System.out.println("ZIPPY KIOSK");
         for (int i = 0; i < items.length; i++) {
             System.out.println((i + 1) + ". " + items[i] + " - UGX " + prices[i]);
         }
