@@ -51,4 +51,18 @@ public class GroupN_businessSimulator {
 
         return total;
     }
+     // Method for receipt messages
+    public static String getDiscountStatus(int itemIndex, int qty) {
+        if (itemIndex == 0) {
+            return (qty >= 5) ? "(5% discount applied)" : "(no discount - fewer than 5)";
+        } else if (itemIndex == 1) {
+            return "(no discount)";
+        } else if (itemIndex == 2) {
+            return (qty >= 10) ? "(UGX 500 discount applied)" : "(no discount - fewer than 10)";
+        } else if (itemIndex == 3) {
+            return (qty >= 3) ? "(10% discount applied)" : "(no discount - fewer than 3)";
+        }
+        return "";
+    }
+}
 }
