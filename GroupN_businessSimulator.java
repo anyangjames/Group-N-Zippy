@@ -17,6 +17,8 @@ public class GroupN_businessSimulator {
 
         // Generate Reciept
         printReceipt(items, prices, quantities);
+       
+
     }
         //Method 2: Prints itemized receipt and calculates grand total
     public static void printReceipt(String[] items, double[] prices, int[] quantities) {
@@ -32,6 +34,10 @@ public class GroupN_businessSimulator {
 
             System.out.println(items[i] + " x " + quantities[i] + " = UGX " + itemSubtotal + " : " + note);
         }
+         //prints total savings off the purchase
+        System.out.println();
+        double totalSavings = calculateTotalSavings(prices, quantities);
+        System.out.println("TOTAL SAVINGS = UGX " + totalSavings);
 
         System.out.println("----------------------------------------");
         System.out.println("TOTAL = UGX " + grandTotal);
@@ -63,6 +69,17 @@ public class GroupN_businessSimulator {
             return (qty >= 3) ? "(10% discount applied)" : "(no discount - fewer than 3)";
         }
         return "";
+    }
+
+    // Method 3: Calculates the total savings
+    public static double calculateTotalSavings(double[] prices, int[] quantities) {
+        double totalSavings = 0.0;
+        for (int i = 0; i < prices.length; i++) {
+            double originalSubtotal = prices[i] * quantities[i];
+            double discountedSubtotal = calculateItemSubtotal(i, prices[i], quantities[i]);
+            totalSavings += (originalSubtotal - discountedSubtotal);
+        }
+        return totalSavings;
     }
 }
 
